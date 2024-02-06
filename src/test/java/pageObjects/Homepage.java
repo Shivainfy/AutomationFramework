@@ -17,7 +17,7 @@ public class Homepage extends base{
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(id="Email")
-	WebElement email;
+	@FindBy(xpath="//img[@title='Flipkart']")
+	private WebElement plifkartLogo;
 
 }
