@@ -25,7 +25,6 @@ public class base {
 			System.setProperty("webdriver.gecko.driver", "C:\\Users\\hp\\eclipse-workspace\\AutomationProject\\drivers\\chromedriver.exe");
 			driver = new FirefoxDriver();
 		}
-		
 	}
 	
 	public base() throws IOException {

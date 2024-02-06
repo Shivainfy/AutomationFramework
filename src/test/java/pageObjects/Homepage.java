@@ -9,10 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 
 import baseClass.base;
 
-public class loginPage extends base{
+public class Homepage extends base{
 	public WebDriver driver;
 	
-	public loginPage(WebDriver driver) throws IOException{
+	public Homepage(WebDriver driver) throws IOException{
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}

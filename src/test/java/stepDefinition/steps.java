@@ -9,13 +9,11 @@ import org.testng.Assert;
 import baseClass.base;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import pageObjects.loginPage;
+import pageObjects.Homepage;
 
 public class steps extends base{
 	
-	//public WebDriver driver;
-	public static loginPage lp;
-	
+	public static Homepage lp;
 	public steps() throws IOException {
 		super();
 	}
@@ -24,7 +22,7 @@ public class steps extends base{
 	public void user_launch_chromebrowser() throws IOException {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\hp\\eclipse-workspace\\AutomationProject\\drivers\\chromedriver.exe");
 		driver = new ChromeDriver();
-		lp=new loginPage(driver);
+		lp=new Homepage(driver);
 	}
 
 	@When("user opens url flipkart url")
