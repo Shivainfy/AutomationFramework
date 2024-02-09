@@ -26,7 +26,7 @@ public class steps extends base{
 	public steps() throws IOException {
 		super();//checking
 	}
-	
+	String value=null;
 	@Before
 	public void BrowserInitialize() {
 		if(prop.getProperty("browser").equalsIgnoreCase("chrome")) {
@@ -39,12 +39,12 @@ public class steps extends base{
 		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(8));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 	}
 	
 	@After
 	public void tearDown() {
-//		driver.quit();
+		EndReport();
 	}
 	
 	@Given("user launch chrome browser")
@@ -60,45 +60,45 @@ public class steps extends base{
 	}
 	
 	@Then("Verify flipkart logo")
-	public void verify_flipkart_logo() {
-		try {
-			Thread.sleep(2000);
-			homepage.VerifyImage();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+	public void verify_flipkart_logo() throws InterruptedException {
+		test=ReportFile("Flipkart Homepage");
+//		String value=null;
+		Thread.sleep(2000);
+		value=homepage.VerifyImage();
+		
 	}
 
 	@And("Click on mobile menu section")
-	public void click_on_mobile_menuSection() {
-		homepage.ClickOnMobile();
+	public void click_on_mobile_menuSection() throws InterruptedException {
+//		base.ClickElement(MobileSection);
+		Thread.sleep(2000);
+		value=homepage.ClickOnMobile();
 	}
 	
 	@Then("Scroll down to price bar and select the price")
 	public void scroll_down_to_price_bar() {
-		homepage.selectDD();
+		value=homepage.selectDD();
 	}
 
 	
 	@And("Search mobile brands")
 	public void MobileBrands() throws InterruptedException {
-		homepage.SelectMobileBrands();
+		value=homepage.SelectMobileBrands();
 	}
 	
 	@And("Choose customer rating four")
 	public void SelectRating() throws InterruptedException {
-		homepage.FourStarRating();
+		value=homepage.FourStarRating();
 	}
 	
 	@And("Select RAM size min 1GB")
 	public void SelectRAM() throws InterruptedException {
-		homepage.SelectGB();
-//		SwitchWindow();
+		value=homepage.SelectGB();
 	}
 	
 	@And("click on Apple mobile for booking")
 	public void AppleMobile() throws InterruptedException {
-		homepage.ClickOnApplePhone();
+		value=homepage.ClickOnApplePhone();
 		
 	}
 }

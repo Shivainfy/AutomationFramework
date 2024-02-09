@@ -1,1 +1,5 @@
+pageObjects\Homepage.class
+stepDefinition\steps.class
+baseClass\base.class
+testRunner\Runner.class
 AutomationPackage\Sample.class

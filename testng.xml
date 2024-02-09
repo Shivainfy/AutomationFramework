@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="Regression">
   <test name="AutomationPackage">
+	  <parameter name="browser" value="chrome"></parameter>
 	  <classes>
-		  <class name="AutomationPackage.Sample"></class>
+		  <class name="testRunner.Runner"></class>
 	  </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
