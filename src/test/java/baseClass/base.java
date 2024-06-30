@@ -48,11 +48,13 @@ public class base {
 	public static void ClickElement(WebElement element) throws InterruptedException {
 		element.click();
 		Thread.sleep(5000);
+		driver.switchTo().newWindow(null);
 	}
 	
 	public static void Dropdown(WebElement element, String value) {
 		Select select = new Select(element);
 		select.selectByValue(value);
+		
 	}
 	
 	public void SwitchWindow() throws InterruptedException {

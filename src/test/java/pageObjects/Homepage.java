@@ -2,6 +2,10 @@ package pageObjects;
 
 import java.io.IOException;
 
+import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+//import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +20,7 @@ import baseClass.base;
 public class Homepage extends base{
 	public WebDriver driver;
 	String value=null;
+	public static Logger log;
 	public Homepage(WebDriver driver) throws IOException{
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
@@ -25,9 +30,12 @@ public class Homepage extends base{
 	private WebElement flipkartLogo;
 	
 	@Test
-	public String VerifyImage() throws InterruptedException {	
+	public String VerifyImage() throws InterruptedException {
+		log = LogManager.getLogger(Homepage.class);
+		
 		boolean logo=flipkartLogo.isDisplayed();
 		System.out.println("is flipkart logo displayed?"+logo);
+			log.info("flipkart log displayed");
 		if(logo==true) {
 			test.log(LogStatus.PASS, "flipkart logo is displayed");
 		}else {
@@ -47,6 +55,7 @@ public class Homepage extends base{
 		}else {
 			test.log(LogStatus.FAIL, "Not Clicked on mobile section");
 		}
+			log.info("Mobiles dashboard displayed");
 		return value;
 	}
 	
@@ -60,6 +69,7 @@ public class Homepage extends base{
 			js.executeScript("window.scrollBy(0,800)", "");
 			Dropdown(DDValue, prop.getProperty("mobilePrice"));
 			Thread.sleep(3000);
+			log.info("Page scrolldown to ");
 			if(true) {
 				test.log(LogStatus.PASS, "Dropdown selected for mobile price");
 			}else {
